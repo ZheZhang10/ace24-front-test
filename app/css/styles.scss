@@ -1,0 +1,70 @@
+  @import 'tailwindcss/base';
+  @import 'tailwindcss/components';
+
+  /* Additional styles */
+  @import './additional-styles/range-sider.scss';
+  @import './additional-styles/theme.scss';
+  @import './additional-styles/toggle-switch.scss';
+  @import './additional-styles/utility-patterns.scss';
+  
+
+  @import 'tailwindcss/utilities';
+
+  @layer utilities {
+    .rtl {
+        direction: rtl;
+    }
+  }
+
+  .consoleButtonContian{
+      display: flex;
+      place-items: center;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      justify-content: center;
+
+  }
+
+  .consoleButton {
+      border: 2px solid darken(black, 15%);
+      border-radius: 7px;
+      cursor: pointer;
+      min-width: 190px;
+      min-height: 55px;    
+      background: #e0e0e0; 
+      color: #ffffff;
+      /* font-family: 'Lora', serif; */
+      font-size: 1.01rem;
+      letter-spacing: 0.4px;
+      position: relative; 
+      transform: skewX(-19deg);
+      
+      
+      
+      &::before {
+          border: 2px solid darken(black, 1%);
+          border-radius: 8px;
+          cursor: pointer;
+          min-width: 190px;
+          min-height: 55px;
+          content: attr(data-label);
+          background: black;
+          display: grid;
+          place-items: center;
+          position: absolute;
+          top: -0.55rem; left: 0.4rem;
+          z-index: -1;
+          transition: all 0.5s ease;
+      }
+      
+      &:hover {
+          &::before {
+          top: -2px; left: -2px;
+        }
+      }
+      
+      &:focus {
+        outline: none;
+      }
+    }
+
